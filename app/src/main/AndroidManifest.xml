@@ -8,8 +8,14 @@
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
     <application android:allowBackup="true" android:supportsRtl="true">
         <activity android:name=".service.MainActivity" android:exported="true">
-            <intent-filter><action android:name="android.intent.action.MAIN" /><category android:name="android.intent.category.LAUNCHER" /></intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
-        <service android:name=".service.OverlayService" android:exported="false" android:foregroundServiceType="specialUse" />
+        <service android:name=".service.OverlayService" android:exported="false" android:foregroundServiceType="specialUse">
+            <property android:name="android.app.PROPERTY_FOREGROUND_SERVICE_SPECIAL_USE"
+                android:value="悬浮窗桌宠显示" />
+        </service>
     </application>
 </manifest>
