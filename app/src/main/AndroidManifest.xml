@@ -13,7 +13,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".service.TidefallActivity" android:exported="false" android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+        <activity android:name=".service.TidefallActivity" android:exported="false" android:theme="@android:style/Theme.NoTitleBar" android:configChanges="orientation|screenSize|keyboardHidden" />
         <service android:name=".service.OverlayService" android:exported="false" android:foregroundServiceType="specialUse">
             <property android:name="android.app.PROPERTY_FOREGROUND_SERVICE_SPECIAL_USE"
                 android:value="悬浮窗桌宠显示" />

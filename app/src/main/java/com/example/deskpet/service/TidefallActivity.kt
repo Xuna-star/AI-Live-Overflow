@@ -1,13 +1,13 @@
 package com.example.deskpet.service
 
+import android.app.Activity
 import android.os.Bundle
 import android.view.View
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.webkit.WebSettings
-import androidx.appcompat.app.AppCompatActivity
 
-class TidefallActivity : AppCompatActivity() {
+class TidefallActivity : Activity() {
 
     private var webView: WebView? = null
 
@@ -35,7 +35,6 @@ class TidefallActivity : AppCompatActivity() {
             webViewClient = object : WebViewClient() {
                 override fun onPageFinished(view: WebView?, url: String?) {
                     super.onPageFinished(view, url)
-                    // Auto-show Tidefall panel after page load
                     view?.evaluateJavascript(
                         "setTimeout(function(){ document.getElementById('tidefall').classList.add('show'); window.petEngine && window.petEngine.fetchState && window.petEngine.fetchState(); }, 300);",
                         null
