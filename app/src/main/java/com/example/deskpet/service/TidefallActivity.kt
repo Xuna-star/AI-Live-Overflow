@@ -31,7 +31,6 @@ class TidefallActivity : AppCompatActivity() {
                 domStorageEnabled = true
                 allowFileAccess = true
                 cacheMode = WebSettings.LOAD_DEFAULT
-                setAppCacheEnabled(true)
             }
             webViewClient = object : WebViewClient() {
                 override fun onPageFinished(view: WebView?, url: String?) {
