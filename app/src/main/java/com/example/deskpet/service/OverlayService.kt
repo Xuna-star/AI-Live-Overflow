@@ -14,10 +14,6 @@ import android.webkit.WebViewClient
 import android.webkit.WebSettings
 import androidx.core.app.NotificationCompat
 
-/**
- * Minimal overlay service example.
- * This is a stripped-down skeleton — add your own logic.
- */
 class OverlayService : Service() {
 
     private var windowManager: WindowManager? = null
@@ -65,7 +61,6 @@ class OverlayService : Service() {
                 cacheMode = WebSettings.LOAD_DEFAULT
             }
             webViewClient = WebViewClient()
-            // Load your pet's HTML from assets
             loadUrl("file:///android_asset/pet.html")
             setOnTouchListener(createTouchListener())
         }
@@ -132,9 +127,11 @@ class OverlayService : Service() {
     }
 
     private fun onDoubleTap() {
-        overlayView?.evaluateJavascript(
-            "window.petEngine && window.petEngine.onDoubleTap()", null
-        )
+        // Launch fullscreen TidefallActivity instead of toggling inline panel
+        val intent = Intent(this, TidefallActivity::class.java).apply {
+            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        }
+        startActivity(intent)
     }
 
     private fun onLongPress() {
